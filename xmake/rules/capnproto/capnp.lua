@@ -77,7 +77,7 @@ function buildcmd(target, batchcmds, sourcefile_capnp, opt)
         table.insert(argv, path(prefixdir, function (p) return "--src-prefix=" .. p end))
     end
     table.insert(argv, "-o")
-    table.insert(argv, path(sourcefile_dir, function (p) return "c++:" .. p end))
+    table.insert(argv, path(rootdir, function (p) return "c++:" .. p end))
     table.insert(argv, path(sourcefile_capnp))
     batchcmds:vrunv(capnp, argv)
     local configs = {includedirs = sourcefile_dir, languages = "c++14"}
